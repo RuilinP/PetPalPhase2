@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPal - My Applications</title>
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/reddit-sans">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="assets/styles/application-list.css">
+    <link rel="stylesheet" href="assets/styles/fix-pos-icon.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <header>
+        <!-- notification button for small screen -->    
+        <div class="d-md-none fixed-bottom pr-3 pb-3">
+            <a class="notif-icon btn btn-sm navbar-brand" href="notifications.html">
+                &#x1F514;
+            </a>
+        </div>
+
+        <!-- Back to Top Button -->
+        <div class="back-to-top-button">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToTop()"> &#x2191; </button>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+            <div class="container-fluid">
+                <a href="landing.html" class="navbar-brand mb-0 h1">
+                    <img class="logo d-line-block" src="assets/images/logo.png" alt="PetPal Logo">
+                </a>
+
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="landing.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pet-search.html" class="nav-link">Pet Search</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="application-list.html" class="nav-link">My Applications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="profile-pet-seeker/profile-pet-seeker.html" class="nav-link">Profile</a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-dark btn-sm ms-0" href="landing.html" role="button">Log out</a>
+                    <a href="notifications.html"
+                        class="btn btn-sm ms-2 me-0 navbar-brand d-none d-md-block">&#x1F514;</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container py-5">
+            <h1>My Applications</h1>
+            <ul class="list-group pt-3">
+                <li class="list-group-item d-flex justify-content-start align-items-center">
+                    <div class="application-thumbnail me-3">
+                        <img src="assets/images/landing-top1.png" class="img-fluid application-thumbnail">
+                    </div>
+                    <h4>Jeff</h4>
+                    <div class="ms-auto"><a class="btn btn-dark" href="application.html">View</a></div>
+                </li>
+                <li class="list-group-item d-flex justify-content-start align-items-center">
+                    <div class="application-thumbnail me-3">
+                        <img src="assets/images/landing-top2.jpg" class="img-fluid application-thumbnail">
+                    </div>
+                    <h4>Catbert</h4>
+                    <div class="ms-auto"><a class="btn btn-dark">View</a></div>
+                </li>
+                <li class="list-group-item d-flex justify-content-start align-items-center">
+                    <div class="application-thumbnail me-3">
+                        <img src="assets/images/landing-top3.jpg" class="img-fluid application-thumbnail">
+                    </div>
+                    <h4>Muffin</h4>
+                    <div class="ms-auto"><a class="btn btn-dark">View</a></div>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Copyright: PetPal</p>
+    </footer>
+
+    <!-- JS function to scroll to top -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

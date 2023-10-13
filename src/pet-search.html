@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/reddit-sans">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="assets/styles/fix-pos-icon.css">
+
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <title>PetPal - Pet Search</title>
+</head>
+<body class="bg-secondary">
+    <header>
+        <!-- notification button for small screen -->    
+        <div class="d-md-none fixed-bottom pr-3 pb-3">
+            <a class="notif-icon btn btn-sm navbar-brand" href="notifications.html">
+                &#x1F514;
+            </a>
+        </div>
+
+        <!-- Back to Top Button -->
+        <div class="back-to-top-button">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToTop()"> &#x2191; </button>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+            <div class="container-fluid">
+                <a href="landing.html" class="navbar-brand mb-0 h1">
+                    <img class="logo d-line-block" src="assets/images/logo.png" alt="PetPal Logo">
+                </a>
+
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="landing.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pet-search.html" class="nav-link">Pet Search</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="application-list.html" class="nav-link">My Applications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="profile-pet-seeker/profile-pet-seeker.html" class="nav-link">Profile</a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-dark btn-sm ms-0" href="landing.html" role="button">Log out</a>
+                    <a href="notifications.html" class="btn btn-sm ms-2 me-0 navbar-brand d-none d-md-block">&#x1F514;</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row mb-3 p-3">
+                <!-- <div class="col"> -->
+                <div class="col mt-3">
+                    <div class="form-group">
+                        <label for="orderbreed" class="form-label fw-bold">Breed:</label>
+                        <div class="dropdown">
+                            <button type="button" id="orderbreed" class="btn btn-dark dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false" data-default-text="Any">
+                                Any
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" data-option="Any">Any</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="Abyssinian">Abyssinian</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="American Bob">American Bobtail</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="American curl">American curl</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#" data-option="Balinese">Balinese</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col mt-3">
+                    <div class="form-group">
+                        <label for="orderage" class="form-label fw-bold">Age:</label>
+                        <div class="dropdown">
+                            <button type="button" id="orderage" class="btn btn-dark dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false" data-bs-toggle="dropdown"
+                                aria-expanded="false" data-default-text="Any">
+                                Any
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" data-option="Any">Any</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="Kitten">Kitten</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="Young">Young</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="Adult">Adult</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="Senior">Senior</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mt-3">
+                    <div class="form-group">
+                        <label for="ordersize" class="form-label fw-bold">Size:</label>
+                        <div class="dropdown">
+                            <button type="button" id="ordersize" class="btn btn-dark dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false" data-bs-toggle="dropdown"
+                                aria-expanded="false" data-default-text="Any">
+                                Any
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" data-option="Any">Any</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="S">Small (0-6 lbs)</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="M">Medium (7-11 lbs)</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="L">Large (12-16 lbs)</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="XL">Extra Large (>=17 lbs)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mt-3">
+                    <div class="form-group">
+                        <label for="ordergender" class="form-label fw-bold">Gender:</label>
+                        <div class="dropdown">
+                            <button type="button" id="ordergender" class="btn btn-dark dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false" data-bs-toggle="dropdown"
+                                aria-expanded="false" data-default-text="Any">
+                                Any
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" data-option="Any">Any</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="♂">Male</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="♀">Female</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mt-3">
+                    <div class="form-group">
+                        <label for="ordergender" class="form-label fw-bold">Color:</label>
+                        <div class="dropdown">
+                            <button type="button" id="ordergender" class="btn btn-dark dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false" data-bs-toggle="dropdown"
+                                aria-expanded="false" data-default-text="Any">
+                                Any
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" data-option="Grey">Any</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="Grey">Grey</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="White">White</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="G&W">Grey&White</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mt-3">
+                    <div class="form-group">
+                        <label for="ordergender" class="form-label fw-bold">Shelter:</label>
+                        <div class="dropdown">
+                            <button type="button" id="ordergender" class="btn btn-dark dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false" data-bs-toggle="dropdown"
+                                aria-expanded="false" data-default-text="Any">
+                                Any
+                            </button>
+                            <ul class="dropdown-menu" id="dropdown1">
+                                <li> <label for="searchshelter" class="form-label mx-2">🔍 Search by shelter name</label>
+                                    <input type="text" class="form-control mx-2" id="searchshelter"
+                                        aria-label="Text input with dropdown button" placeholder="Input shelter name here">
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#" data-option="Any">Any</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="ACT">Annex Cat Rescue</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="AAS">Alberta Animal Service</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col offset-md-4 mt-3">
+                    <div class="form-group">
+                        <label for="ordergender" class="form-label fw-bold">Sort by:</label>
+                        <div class="dropdown">
+    
+                            <button type="button" id="sortby" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false"
+                                data-default-text="Best Match">
+                                Best match
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" data-option="Best match">Best match</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="Newest">Newest addition</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="Oldest">Oldest addition</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="Nearest">Nearest</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="Furthest">Furthest</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="A-Z">Name A-Z</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="Z-A">Name Z-A</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="Youngest">Young to Old</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="Oldest">Old to Young</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="Smallest">Small to Large</a></li>
+                                <li><a class="dropdown-item" href="#" data-option="Largest">Large to Small</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- <div class="col d-flex justify-content-center">
+            <div class="col">
+                (sort by)
+            </div>
+            </div> -->
+            <!-- </div> -->
+    
+        </div>
+        <div id="filteredPetCards" style="display: none;"></div>
+
+        <div class="container mb-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col" data-sort-value="Best match" data-last-updated="00000000000060">
+                    <div class="card h-100 bg-white">
+                        <img src="assets/images/shelter-uploads/cat1.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-center text-dark">RINGO</h5>
+                            <p class="card-text text-center"> Senior- Domestic Short Hair </p>
+                            <p class="card-text text-center"> 2km away </p>
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 bg-white text-center">
+                                    <a href="#" class="btn btn-dark">Learn more</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-info">
+                            <small class="text-white">Last updated 1 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" data-sort-value="Best match" data-last-updated="00000000000180">
+                    <div class="card h-100 bg-white">
+                        <img src="assets/images/shelter-uploads/cat2.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-center text-dark">WERTHER</h5>
+                            <p class="card-text text-center"> Adult- Domestic Short Hair </p>
+                            <p class="card-text text-center"> 2km away </p>
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 bg-white text-center">
+                                    <a href="#" class="btn btn-dark">Learn more</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-info">
+                            <small class="text-white">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" data-sort-value="Best match" data-last-updated="00000000000120">
+                    <div class="card h-100 bg-white">
+                        <img src="assets/images/shelter-uploads/cat3.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-center text-dark">LEMUR</h5>
+                            <p class="card-text text-center"> Senior- Domestic Short Hair </p>
+                            <p class="card-text text-center"> 2km away </p>
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 bg-white text-center">
+                                    <a href="pet-detail.html" class="btn btn-dark">Learn more</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-info">
+                            <small class="text-white">Last updated 2 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col" data-sort-value="Best match" data-last-updated="00000000000060">
+                    <div class="card h-100 bg-white">
+                        <img src="assets/images/shelter-uploads/cat4.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-center text-dark">BAGEL</h5>
+                            <p class="card-text text-center"> Adult- Domestic Short Hair </p>
+                            <p class="card-text text-center"> 2km away </p>
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 bg-white text-center">
+                                    <a href="#" class="btn btn-dark">Learn more</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-info">
+                            <small class="text-white">Last updated 1 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="no-result-message text-center mt-3" style="display: none;">
+                <h1 class="fw-bold text-center">No results found.</h1>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Copyright: PetPal</p>
+    </footer>
+
+    <!-- JS function to scroll to top -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+    <script>
+        // Get all dropdown buttons
+        const dropdownButtons = document.querySelectorAll('.dropdown-toggle');
+
+        // Add click event listener to each dropdown
+        dropdownButtons.forEach(button => {
+            const defaultText = button.getAttribute('data-default-text');
+
+            // Add click event listener to dropdown items
+            const dropdownItems = button.nextElementSibling.querySelectorAll('.dropdown-item');
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const selectedOption = item.getAttribute('data-option');
+                    button.innerText = selectedOption;
+                });
+            });
+
+            // Reset to default text when the dropdown is closed
+            button.addEventListener('click', () => {
+                button.innerText = defaultText;
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get references to the elements
+            const ageDropdown = document.querySelector("#orderage");
+            const sortDropdown = document.querySelector("#sortby");
+            const petCardsContainer = document.querySelector(".row-cols-1.row-cols-md-3");
+            const petCards = Array.from(petCardsContainer.querySelectorAll(".col"));
+            const noResultMessage = document.querySelector(".no-result-message");
+
+            // Create an array to store all cards
+            let allPetCards = [...petCards];
+
+            // Function to update the display based on filters and sorting
+            function updateDisplay() {
+                const selectedAge = ageDropdown.innerText.trim();
+                const selectedSortOption = sortDropdown.innerText.trim();
+
+                // Filter the cards based on the selected age
+                const filteredCards = allPetCards.filter(card => {
+                    const cardTextElement = card.querySelector(".card-text");
+                    const cardText = cardTextElement.textContent.trim();
+
+                    // Check if the card's text starts with the selected age
+                    return selectedAge === "Any" || cardText.startsWith(selectedAge);
+                });
+
+                // Sort the filtered cards based on the selected sorting option
+                filteredCards.sort((a, b) => {
+                    if (selectedSortOption === "Best match") {
+                        // Implement sorting logic for "Best match"
+                    } else if (selectedSortOption === "Oldest") {
+                        const timestampA = parseInt(a.getAttribute("data-last-updated"));
+                        const timestampB = parseInt(b.getAttribute("data-last-updated"));
+                        return timestampB - timestampA; // Sort from newest to oldest
+                    } else if (selectedSortOption === "Newest") {
+                        const timestampA = parseInt(a.getAttribute("data-last-updated"));
+                        const timestampB = parseInt(b.getAttribute("data-last-updated"));
+                        return timestampA - timestampB; // Sort from oldest to newest
+                    } else if (selectedSortOption === "Nearest") {
+                        // Implement sorting logic for "Nearest"
+                    } else if (selectedSortOption === "Furthest") {
+                        // Implement sorting logic for "Furthest"
+                    }
+
+                    // Compare other sorting criteria here if needed
+                });
+
+                // Clear the container
+                petCardsContainer.innerHTML = "";
+
+                // Append the sorted and filtered cards back to the container
+                filteredCards.forEach(card => {
+                    petCardsContainer.appendChild(card);
+                });
+
+                // Show or hide the "No result" message
+                if (filteredCards.length === 0) {
+                    noResultMessage.style.display = "block";
+                } else {
+                    noResultMessage.style.display = "none";
+                }
+            }
+
+            // Add a click event listener to the Age dropdown items
+            ageDropdown.nextElementSibling.querySelectorAll(".dropdown-item").forEach(item => {
+                item.addEventListener("click", () => {
+                    // Update the display when the age filter changes
+                    updateDisplay();
+                });
+            });
+
+            // Add a click event listener to the "Sort by" dropdown items
+            sortDropdown.nextElementSibling.querySelectorAll(".dropdown-item").forEach(item => {
+                item.addEventListener("click", () => {
+                    // Update the display when the sorting option changes
+                    updateDisplay();
+                });
+            });
+
+            // Initially, update the display to reflect the initial state
+            updateDisplay();
+        });
+    </script>
+</body>
+</html>

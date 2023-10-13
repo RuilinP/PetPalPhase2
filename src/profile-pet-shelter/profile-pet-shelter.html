@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPal - Profile - Pet Shelter</title>
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/reddit-sans">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../assets/styles/login-signup.css">
+    <link rel="stylesheet" href="../assets/styles/profile.css">
+    <link rel="stylesheet" href="../assets/styles/fix-pos-icon.css">
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-secondary">
+    <header>
+        <!-- notification button for small screen -->
+        <div class="d-md-none fixed-bottom pr-3 pb-3">
+            <a class="notif-icon btn btn-sm navbar-brand" href="../notifications.html">
+                &#x1F514;
+            </a>
+        </div>
+
+        <!-- Back to Top Button -->
+        <div class="back-to-top-button">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToTop()"> &#x2191; </button>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+            <div class="container-fluid">
+                <a href="../landing.html" class="navbar-brand mb-0 h1">
+                    <img class="logo d-line-block" src="../assets/images/logo.png" alt="PetPal Logo">
+                </a>
+
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="../landing.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../shelter-mgmt.html" class="nav-link">Manage Shelter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../profile-pet-shelter/profile-pet-shelter.html" class="nav-link">Profile</a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-dark btn-sm ms-0" href="../landing.html" role="button">Log out</a>
+                    <a href="../notifications.html" class="btn btn-sm ms-2 me-0 navbar-brand d-none d-md-block">&#x1F514;</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="profile-main">
+        <div class="d-flex flex-column align-items-center gap-3">
+            <div class="profile-picture">
+                <img src="../assets/images/default-profile-picture.png" alt="profile picture">
+            </div>
+            <label for="photo" class="btn btn-primary">
+                Change Photo
+                <input type="file" class="d-none" id="photo" accept="image/*">
+            </label>
+        </div>
+
+        <div class="login-signup-box">
+            <form class="login-signup-form" class="needs-validation" novalidate action="profile-pet-shelter.html">
+                <div class="d-flex justify-content-between gap-3">
+                    <h3 class="fw-bold">Pet Shelter Profile</h3>
+                    <div class="multiple-buttons">
+                        <a class="btn btn-primary align-self-start" href="profile-pet-shelter-edit.html">Edit</a>
+                        <a class="btn btn-primary align-self-start d-none" href="profile-pet-shelter.html">Save</a>
+                        <a class="btn btn-outline-primary align-self-start d-none" href="profile-pet-shelter.html">Cancel</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="organization">Organization</label>
+                        <input type="text" class="form-control" id="organization" placeholder="Enter organization here" required readonly value="Bikini Bottom Shelter">
+                        <div class="invalid-feedback">
+                            Please enter your organization's name.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email here" required readonly value="adopt@bikinibottomshelter.com">
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="phone-number">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone-number" placeholder="Enter phone number here" required readonly value="123-456-7890">
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter your phone number.
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter address here" required readonly value="123 Adopt Me Street">
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter your address.
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="country">Country</label>
+                        <input type="text" class="form-control" id="country" placeholder="Enter country here" required readonly value="Canada">
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter your country.
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="state-province">State/Province</label>
+                        <input type="text" class="form-control" id="state-province" placeholder="Enter state/province here" required readonly value="Ontario">
+                        <div class="invalid-feedback">
+                            Please enter your state/province.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" placeholder="Enter city here" required readonly value="Toronto">
+                        <div class="invalid-feedback">
+                            Please enter your city.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="postal-code">Zip/Postal Code</label>
+                        <input type="text" class="form-control" id="postal-code" placeholder="Enter zip/postal code here" required readonly value="A1B 2C3">
+                        <div class="invalid-feedback">
+                            Please enter your zip/postal code.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col">
+                        <label for="mission-statement">Mission Statement</label>
+                        <textarea class="form-control" id="mission-statement" placeholder="Enter mission statement here" rows="3" required readonly>Our mission is lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
+                        <div class="invalid-feedback">
+                            Please enter your mission statement.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col">
+                        <label for="password">New Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter password here" required readonly>
+                        <div class="invalid-feedback">
+                            Please ensure that your passwords match.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label for="confirm-password">Confirm New Password</label>
+                    <input type="password" class="form-control" id="confirm-password" placeholder="Confirm password here" required readonly>
+                    <div class="invalid-feedback">
+                        Please ensure that your passwords match.
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Copyright: PetPal</p>
+    </footer>
+
+    <!-- JS function to scroll to top -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

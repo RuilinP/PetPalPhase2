@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPal - Login</title>
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/reddit-sans">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="assets/styles/login-signup.css">
+    <link rel="stylesheet" href="assets/styles/fix-pos-icon.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-secondary">
+    <header>
+        <!-- Back to Top Button -->
+        <div class="back-to-top-button">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToTop()"> &#x2191; </button>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+            <div class="container-fluid">
+                <a href="landing.html" class="navbar-brand mb-0 h1">
+                    <img class="logo d-line-block" src="assets/images/logo.png" alt="PetPal Logo">
+                </a>
+
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="landing.html" class="nav-link">Home</a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-dark btn-sm ms-0" href="login.html" role="button">Login</a>
+                    <a class="btn btn-dark btn-sm ms-3" href="signup.html" role="button">Signup</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="login-signup-main">
+        <div class="login-signup-box">
+            <h3 class="fw-bold">Welcome Back!</h3>
+
+            <div class="alert alert-danger alert-dismissible fade collapse" role="alert">
+                Incorrect email or password.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="closeError()"></button>
+            </div>
+
+            <form class="needs-validation login-signup-form" novalidate>
+                <div class="row">
+                    <div class="col">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email here" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter password here" required>
+                    </div>
+                </div>
+    
+                <div class="mt-2">
+                    <button class="btn btn-primary align-self-start" type="submit" onclick="showError()">Login</button>
+                    <div class="mt-1">
+                        <p class="fs-6"><span class="fw-bold">Don't have an account?</span> Sign up <a href="signup.html">here</a>.</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Copyright: PetPal</p>
+    </footer>
+
+    <script>
+        // JS function to scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showError() {
+            var alert = document.querySelector('.alert');
+            alert.classList.add('show');
+            event.preventDefault();
+        }
+
+        function closeError() {
+            var alert = document.querySelector('.alert');
+            alert.classList.remove('show');
+        }
+    </script>
+</body>
+</html>

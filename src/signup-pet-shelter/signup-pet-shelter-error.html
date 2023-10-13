@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPal - Signup - Pet Shelter - Error</title>
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/reddit-sans">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../assets/styles/login-signup.css">
+    <link rel="stylesheet" href="../assets/styles/fix-pos-icon.css">
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-secondary">
+    <header>
+        <!-- Back to Top Button -->
+        <div class="back-to-top-button">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToTop()"> &#x2191; </button>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+            <div class="container-fluid">
+                <a href="../landing.html" class="navbar-brand mb-0 h1">
+                    <img class="logo d-line-block" src="../assets/images/logo.png" alt="PetPal Logo">
+                </a>
+
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="../landing.html" class="nav-link">Home</a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-dark btn-sm ms-0" href="../login.html" role="button">Login</a>
+                    <a class="btn btn-dark btn-sm ms-3" href="../signup.html" role="button">Signup</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="login-signup-main">
+        <div class="login-signup-box">
+            <div>
+                <h3 class="fw-bold">Create a Pet Shelter Account</h3>
+                <p class="fs-6"><span class="fw-bold">Are you a Pet Seeker?</span> Sign up <a href="../signup-pet-seeker/signup-pet-seeker.html">here</a>.</p>
+            </div>
+
+            <form class="login-signup-form" class="needs-validation is-validated" novalidate action="signup-pet-shelter-done.html">
+                <div class="row">
+                    <div class="col">
+                        <label for="organization">Organization</label>
+                        <input type="text" class="form-control is-invalid" id="organization" placeholder="Enter organization here" required>
+                        <div class="invalid-feedback">
+                            Please enter your organization's name.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control is-invalid" id="email" placeholder="Enter email here" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="phone-number">Phone Number</label>
+                        <input type="tel" class="form-control is-invalid" id="phone-number" placeholder="Enter phone number here" required>
+                        <div class="invalid-feedback">
+                            Please enter your phone number.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control is-invalid" id="address" placeholder="Enter address here" required>
+                        <div class="invalid-feedback">
+                            Please enter your address.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="country">Country</label>
+                        <input type="text" class="form-control is-invalid" id="country" placeholder="Enter country here" required>
+                        <div class="invalid-feedback">
+                            Please enter your country.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="state-province">State/Province</label>
+                        <input type="text" class="form-control is-invalid" id="state-province" placeholder="Enter state/province here" required>
+                        <div class="invalid-feedback">
+                            Please enter your state/province.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control is-invalid" id="city" placeholder="Enter city here" required>
+                        <div class="invalid-feedback">
+                            Please enter your city.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="postal-code">Zip/Postal Code</label>
+                        <input type="text" class="form-control is-invalid" id="postal-code" placeholder="Enter zip/postal code here" required>
+                        <div class="invalid-feedback">
+                            Please enter your zip/postal code.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control is-invalid" id="password" placeholder="Enter password here" value="123" required>
+                        <div class="invalid-feedback">
+                            Please ensure that your passwords match.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" class="form-control is-invalid" id="confirm-password" placeholder="Confirm password here" value="321" required>
+                        <div class="invalid-feedback">
+                            Please ensure that your passwords match.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="mission-statement">Mission Statement</label>
+                        <textarea class="form-control is-invalid" id="mission-statement" placeholder="Enter mission statement here" rows="3" required></textarea>
+                        <div class="invalid-feedback">
+                            Please enter your mission statement.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-2">
+                    <button class="btn btn-primary align-self-start" type="submit" onclick="showError()">Signup</button>
+                    <div class="mt-1">
+                        <p class="fs-6"><span class="fw-bold">Already have an account?</span> Log in <a href="../login.html">here</a>.</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Copyright: PetPal</p>
+    </footer>
+
+    <!-- JS function to scroll to top -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/reddit-sans">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="assets/styles/fix-pos-icon.css">
+
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <title>PetPal - Pet Update</title>
+</head>
+<body class="bg-secondary">
+    <!--navbar-->
+    <header>  
+        <!-- notification button for small screen -->
+        <div class="d-md-none fixed-bottom pr-3 pb-3">
+            <a class="notif-icon btn btn-sm navbar-brand" href="notifications.html">
+                &#x1F514;
+          </a>
+        </div>
+
+        <!-- Back to Top Button -->
+        <div class="back-to-top-button">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToTop()"> &#x2191; </button>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+            <!-- Navbar content -->
+            <div class="container-fluid">
+                <a href="landing.html" class="navbar-brand mb-0 h1">
+                    <img class="logo d-line-block" src="assets/images/logo.png" alt="PetPal Logo">
+                </a>
+
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="landing.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="shelter-mgmt.html" class="nav-link">Manage Shelter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="profile-pet-shelter/profile-pet-shelter.html" class="nav-link">Profile</a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-dark btn-sm ms-0" href="landing.html" role="button">Log out</a>
+                    <!-- notification button for large screen -->
+                    <a href="notifications.html" class="btn btn-sm ms-2 me-0 navbar-brand d-none d-md-block">&#x1F514;</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container mt-5">
+            <div class="d-flex flex-column flex-md-row gap-5 justify-content-center">
+                <div>
+                    <h1 class="fs-4  fw-bold text-lg-start">Upload Image/Videos here</h1>
+                    <div class="square">
+                        <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="assets/images/shelter-uploads/lemur1.jpeg" alt="Your Image"></a>
+                    </div>
+                    <div class="square mt-5">
+                        <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="assets/images/shelter-uploads/lemur2.jpeg" alt="Your Image"></a>
+                    </div>
+                    <div class="square mt-5">
+                        <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="assets/images/shelter-uploads/video.png" alt="Your Image"></a>
+                    </div>
+                    <div class="square mt-5">
+                        <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="assets/images/shelter-uploads/upload.png" alt="Your Image"></a>
+                    </div>
+                </div>
+    
+                <!-- card for input -->
+                <div>
+                    <div class="card h-300 bg-white mb-5" id="card2">
+                        <div class="card-body">
+                            <h1 class="fs-4 fw-bold text-lg-start mb-3">Pet Update</h1>
+                            <div class="mb-3">
+                                <label for="pet-name" class="form-label">Pet Name</label>
+                                <input type="text" class="form-control " id="pet-name" value="Lemur">
+                                <div class="invalid-feedback">
+                                    Please enter the name of the pet!
+                                </div>
+                            </div>
+    
+                            <label class="form-label">Breed</label>
+                            <div class="input-group mb-3">
+                                <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">Breed</button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Abyssinian</a></li>
+                                    <li><a class="dropdown-item" href="#">American Bobtail</a></li>
+                                    <li><a class="dropdown-item" href="#">American curl</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Balinese</a></li>
+                                </ul>
+                                <!-- <input type="text" class="form-control" aria-label="Text input with dropdown button"> -->
+                                
+                            </div>
+                            
+                            <label class="form-label">Gender</label>
+                            <div class="input-group mb-3">
+                                <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">Gender</button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Male</a></li>
+                                    <li><a class="dropdown-item" href="#">Female</a></li>
+                                </ul>
+                            </div>
+                            <label class="form-label">Age</label>
+                            <div class="input-group mb-3">
+                                <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">Age</button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Kitten</a></li>
+                                    <li><a class="dropdown-item" href="#">Young</a></li>
+                                    <li><a class="dropdown-item" href="#">Adult</a></li>
+                                    <li><a class="dropdown-item" href="#">Senior</a></li>
+                                </ul>
+                            </div>
+                            <label class="form-label">Size</label>
+                            <div class="input-group mb-3">
+                                <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">Size</button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Small (0-6 lbs)</a></li>
+                                    <li><a class="dropdown-item" href="#">Medium (7-11 lbs)</a></li>
+                                    <li><a class="dropdown-item" href="#">Large (12-16 lbs)</a></li>
+                                    <li><a class="dropdown-item" href="#">Extra Large (>=17 lbs)</a></li>
+                                </ul>
+                            </div>
+                            <label class="form-label">Hair-color</label>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" value="Grey & White">
+                                <div class="form-text">For example, grey & white</div>
+                            </div>
+    
+                            <label class="form-label">State/Province</label>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" value="Ontario">
+                            </div>
+                            <label class="form-label">City</label>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" value="Toronto">
+                            </div>
+                            <label class="form-label">ZIP/Postal code</label>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" value="A1B 2C3">
+                            </div>
+    
+                            <label class="form-label">Characteristics</label>
+                            <div class="mb-3">
+                                <textarea rows="3" class="form-control w-100" aria-label="Text input with dropdown button">Friendly, Affectionate, Playful, Shy, Timid</textarea>
+                            </div>
+    
+                            <label class="form-label">Health condition</label>
+                            <div class="mb-3">
+                                <textarea rows="3" class="form-control w-100" aria-label="Text input with dropdown button">Vaccinations up to date, spayed/neutered. Early-stage kidney disease, weekly injection of sub-Q required.</textarea>
+                            </div>
+                            <label class="form-label">Story</label>
+                            <div class="mb-3">
+                                <textarea rows="6" class="form-control w-100" aria-label="Text input with dropdown button">Lemur is a very sweet and cuddly boy who is named for his large, round eyes and funny face that make him look like he is part lemur monkey! Lemur has lived most of his life outdoors as a semi-feral cat, but has since warmed up to humans and indoor living and is now looking for a human and home of his very own.</textarea>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-info">
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 bg-info text-center">
+                                    <a href="shelter-mgmt.html#animal-inventory" class="btn btn-dark mx-5 mt-2 mb-2">Cancel</a>
+                                    <a href="pet-update-error.html" class="btn btn-dark mx-5 mt-2 mb-2">Submit</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Image/Videos Upload</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="square mt-5">
+                            <img id="uploadedImage" src="assets/images/shelter-uploads/upload.png" alt="Your Image">
+                        </div>
+                        <label for="formFileLg" class="form-label">Upload an image file here</label>
+                        <input class="form-control form-control-lg" id="formFileLg" type="file" onchange="displayUploadedFile(this)" />
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label for="videolink" class="form-label">Or input a link to youtube or vimeo video
+                                    here:</label>
+                                <input type="text" class="form-control" id="videolink">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Remove</button>
+                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        
+    <footer>
+        <p>© 2023 Copyright: PetPal</p>
+    </footer>
+
+    <script>
+        function displayUploadedFile(input) {
+            const uploadedImage = document.getElementById('uploadedImage');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    uploadedImage.src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

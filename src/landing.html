@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPal - Home</title>
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/reddit-sans">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="assets/styles/landing.css">
+    <link rel="stylesheet" href="assets/styles/fix-pos-icon.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <header>
+        <!-- Back to Top Button -->
+        <div class="back-to-top-button">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToTop()"> &#x2191; </button>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+            <div class="container-fluid">
+                <a href="landing.html" class="navbar-brand mb-0 h1">
+                    <img class="logo d-line-block" src="assets/images/logo.png" alt="PetPal Logo">
+                </a>
+
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="landing.html" class="nav-link">Home</a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-dark btn-sm ms-0" href="login.html" role="button">Login</a>
+                    <a class="btn btn-dark btn-sm ms-3" href="signup.html" role="button">Signup</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container-fluid p-0">
+            <div class="masthead mw-100 py-5 text-white text-center">
+                <h1 class="masthead-title">Rescue, Love, Repeat: Adopt a Pet Today!</h1>
+                <div class="py-3 d-flex gap-3 justify-content-center align-items-center">
+                    <div class="d-none d-lg-inline text-end landing-top-image"><img class="image" src="assets/images/landing-top2.jpg"></div>
+                    <div class="d-none d-lg-inline landing-top-image landing-top-image-main"><img class="image" src="assets/images/landing-top1.png"></div>
+                    <div class="d-none d-lg-inline text-start landing-top-image"><img class="image" src="assets/images/landing-top3.jpg"></div>
+                    <div class="d-lg-none landing-top-image"><img class="image" src="assets/images/landing-top1.png"></div>
+                </div>
+                <div class="pt-3"><a class="btn btn-dark" href="pet-search.html" role="button">Search for a Pet</a></div>
+            </div>
+
+            <div class="d-flex align-items-stretch bg-primary">
+                <img class="d-none d-lg-inline-block landing-row-thumb" src="assets/images/landing-1.jpg" />
+                <div class="p-5 d-flex flex-column justify-content-center">
+                    <h1 class="pb-3">Looking to adopt a pet?</h1>
+                    <p class="fs-5">Ready to bring a new furry friend into your life? Explore pet adoption! Find your perfect companion and provide a loving forever home to a pet in need. Start your journey today!</p>
+                    <div class="pt-3"><a class="btn btn-dark" href="signup-pet-seeker/signup-pet-seeker.html" role="button">Signup as a Pet Seeker</a></div>
+                </div>
+            </div>
+
+            <div class="d-flex bg-white">
+                <div class="p-5 d-flex flex-column justify-content-center">
+                    <h1 class="pb-3">Looking to put a pet up for adoption?</h1>
+                    <p class="fs-5">Seeking a loving home for your beloved pet? Consider pet adoption. Help your pet find a caring family that will cherish them as much as you do. Get started today!</p>
+                    <div class="pt-3"><a class="btn btn-dark" href="signup-pet-shelter/signup-pet-shelter.html" role="button">Signup as a Pet Shelter</a></div>
+                </div>
+                <img class="d-none d-lg-inline-block landing-row-thumb img-responsive ms-auto" src="assets/images/landing-2.png" />
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Copyright: PetPal</p>
+    </footer>
+
+    <!-- JS function to scroll to top -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

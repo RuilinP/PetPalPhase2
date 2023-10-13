@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPal - Signup</title>
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/reddit-sans">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="assets/styles/login-signup.css">
+    <link rel="stylesheet" href="assets/styles/fix-pos-icon.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-secondary">
+    <header>
+        <!-- Back to Top Button -->
+        <div class="back-to-top-button">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToTop()"> &#x2191; </button>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+            <div class="container-fluid">
+                <a href="landing.html" class="navbar-brand mb-0 h1">
+                    <img class="logo d-line-block" src="assets/images/logo.png" alt="PetPal Logo">
+                </a>
+
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="landing.html" class="nav-link">Home</a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-dark btn-sm ms-0" href="login.html" role="button">Login</a>
+                    <a class="btn btn-dark btn-sm ms-3" href="signup.html" role="button">Signup</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="login-signup-main">
+        <div class="login-signup-box">
+            <h4 class="fw-bold text-center">Are you a Pet Seeker or a Pet Shelter?</h4>
+
+            <div class="login-signup-form text-center">
+                <a class="btn btn-primary d-flex flex-column p-3" href="signup-pet-seeker/signup-pet-seeker.html">
+                    <span class="fw-bold">Pet Seeker!</span>
+                    <span>I'm looking to adopt a pet.</span>
+                </a>
+
+                <a class="btn btn-primary d-flex flex-column p-3" href="signup-pet-shelter/signup-pet-shelter.html">
+                    <span class="fw-bold">Pet Shelter!</span>
+                    <span>I'm listing pets for adoption.</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Copyright: PetPal</p>
+    </footer>
+
+    <!-- JS function to scroll to top -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

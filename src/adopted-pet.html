@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPal - Pet Detail</title>
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/reddit-sans">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="assets/styles/fix-pos-icon.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+</head>
+<body class="bg-secondary">
+    <header>
+        <!-- notification button for small screen -->    
+        <div class="d-md-none fixed-bottom pr-3 pb-3">
+            <a class="notif-icon btn btn-sm navbar-brand" href="notifications.html">
+                &#x1F514;
+            </a>
+        </div>
+
+        <!-- Back to Top Button -->
+        <div class="back-to-top-button">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToTop()"> &#x2191; </button>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+            <div class="container-fluid">
+                <a href="landing.html" class="navbar-brand mb-0 h1">
+                    <img class="logo d-line-block" src="assets/images/logo.png" alt="PetPal Logo">
+                </a>
+
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="landing.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pet-search.html" class="nav-link">Pet Search</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="application-list.html" class="nav-link">My Applications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="profile-pet-seeker/profile-pet-seeker.html" class="nav-link">Profile</a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-dark btn-sm ms-0" href="landing.html" role="button">Log out</a>
+                    <a href="notifications.html" class="btn btn-sm ms-2 me-0 navbar-brand d-none d-md-block">&#x1F514;</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-interval="false">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="assets/images/shelter-uploads/lemur1.jpeg" class="d-block" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="assets/images/shelter-uploads/lemur2.jpeg" class="d-block" alt="...">
+            </div>
+            <div class="carousel-item">
+                <!-- Embed YouTube Video -->
+                <div class="embed-responsive embed-responsive-16by9 video-container">
+                    <iframe class="embed-responsive-item" src="//player.vimeo.com/video/863395004"></iframe>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <!-- Embed YouTube Video -->
+                <div class="embed-responsive embed-responsive-16by9 video-container">
+                    <iframe class="embed-responsive-item" src="//player.vimeo.com/video/863395014"></iframe>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <div>
+            <h1 class="fs-1 mt-3 fw-bold text-center text-uppercase">Lemur (Adopted)</h1>
+            <p class="text-center">Domestic Medium Hair-Toronto, Ontario</p>
+        </div>
+    </div>
+    <div class="container">
+        <hr class="border-2 border-top border-dark" />
+        <output>Senior-Male-Medium-Grey&White</output>
+        <hr class="border-2 border-top border-dark" />
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="fs-2 fw-bold text-lg-start">About</h1>
+                <h1 class="fs-3 text-lg-start">Characteristics</h1>
+                <p>Friendly, Affectionate, Playful, Shy, Timid</p>
+                <h1 class="fs-3 text-lg-start">Health</h1>
+                <p>Vaccinations up to date, spayed /neutered. Early-stage kidney disease, weekly injection of sub-Q required.</p>
+            </div>
+            <div class="col">
+                <div class="col d-flex justify-content-center">
+                    <div class="card bg-primary">
+                        <div class="card-body">
+                            <h5 class="card-title text-center text-white mb-3">Considering LEMUR for adoption?</h5>
+
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 bg-primary text-center">
+                                    <a href="chat.html" class="btn btn-dark">Send an enquiry</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="fs-2 fw-bold text-lg-start">LEMUR's Story</h1>
+
+                <p>Lemur is a very sweet and cuddly boy who is named for his large, round eyes
+                    and funny face that make him look like he is part lemur monkey! Lemur has
+                    lived most of his life outdoors as a semi-feral cat, but has since warmed up
+                    to humans and indoor living and is now looking for a human and home of his
+                    very own.</p>
+
+                <p>Lemur is a funny character who chases his own tail, somersaults while he is playing, and loves to be
+                    pet so
+                    much he drools a bit. He is always ready for attention from his humans and takes any opportunity to
+                    jump up
+                    beside you on the couch or bed to settle in for an endless pet session - he would make a great TV
+                    watching
+                    buddy!</p>
+                <p>While he does love attention, Lemur is not a high maintenance or clingy cat. He entertains himself by
+                    galloping up and down the hallway, leaping up cat trees, and playing with his favourite Yeowww
+                    catnip toys. He
+                    has a lot of energy for an older gentleman and would love an active playmate to chase around and get
+                    chased by
+                    - he is very good and confident with other cats. He also has perfect litterbox habits.
+                </p>
+                <p>Lemur has early-stage kidney disease, which is very common in cats as they age. It is easily managed
+                    by a
+                    special diet, which he loves, and twice weekly sub-Q injections, which help keep him hydrated. He is
+                    okay with
+                    receiving his subQs as long as there are lots of pets and treats involved.</p>
+                <p>Having grown up on the streets, Lemur is shy around strangers and would need an adjustment period to
+                    get used
+                    to a new space with new people. After earning his trust, he would keep any human lucky enough to
+                    choose him
+                    thoroughly entertained with his quirky personality. Lemur is just waiting for his retirement home
+                    where he can
+                    receive lots of attention from his very own human!</p>
+                <p>Lemur would do well as a buddy to a friendly, playful resident cat, but he could do well as the solo
+                    cat in
+                    the home provided he gets all the attention and cuddles he wants :)Check out videos of Lemur playing
+                    and
+                    cuddling by following these
+                    links: https://vimeo.com/863395004?share=copyhttps://vimeo.com/863395014?share=copy
+                </p>
+            </div>
+            <div class="col">
+                <div class="col d-flex justify-content-center">
+                    <div class="card bg-info my-5">
+                        <div class="card-body">
+                            <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto"
+                                style="width: 150px; height: 150px;">
+                                <img src="assets/images/chihuahua.png" height="100" alt="" loading="lazy" />
+                            </div>
+                            <h5 class="card-title text-center text-white">Annex Cat Rescue</h5>
+                            <p class="card-text text-center text-white mb-4">Toronto, Ontario</p>
+                            <p class="card-text text-center text-white">
+                                <a href="mailto:adoption@annexcatrescue.ca" class="text-white">adoption@annexcatrescue.ca</a>
+                            </p>
+                            <p class="card-text text-center text-white mb-5">☎ (416) 410-3835</p>
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 bg-info text-center">
+                                    <a href="shelter-details.html" class="btn btn-dark">Shelter Page</a>
+                                </li>
+                                <li class="list-group-item border-0 bg-info text-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    <a href="#" class="btn btn-dark">Apply now</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Sorry, Lemur is already adopted!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ❤️ But there are many other cuties await you!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 Copyright: PetPal</p>
+    </footer>
+
+    <!-- JS function to scroll to top -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPal - Application</title>
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/reddit-sans">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="assets/styles/adoption.css">
+    <link rel="stylesheet" href="assets/styles/fix-pos-icon.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <header>
+        <!-- notification button for small screen -->    
+        <div class="d-md-none fixed-bottom pr-3 pb-3">
+            <a class="notif-icon btn btn-sm navbar-brand" href="notifications.html">
+                &#x1F514;
+            </a>
+        </div>
+
+        <!-- Back to Top Button -->
+        <div class="back-to-top-button">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToTop()"> &#x2191; </button>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+            <div class="container-fluid">
+                <a href="landing.html" class="navbar-brand mb-0 h1">
+                    <img class="logo d-line-block" src="assets/images/logo.png" alt="PetPal Logo">
+                </a>
+
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="landing.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="shelter-mgmt.html" class="nav-link">Manage Shelter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="profile-pet-shelter/profile-pet-shelter.html" class="nav-link">Profile</a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-dark btn-sm ms-0" href="landing.html" role="button">Log out</a>
+                    <a href="notifications.html" class="btn btn-sm ms-2 me-0 navbar-brand d-none d-md-block">&#x1F514;</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="adoption-main">
+        <div class="container pt-5 pb-3">
+            <div class="col-md-6 offset-md-3">
+                <div class="d-flex flex-column align-items-center">
+                    <div class="adoption-photo">
+                        <img src="assets/images/jeff-photo.png" alt="" loading="lazy">
+                    </div>
+                    <h3 class="mt-3">Application Information</h3>
+                </div>
+            </div>
+        </div>
+    
+        <div class="container pb-5">
+            <div class="col-md-8 offset-md-2">
+                <form class="form-inline p-3">
+                    <div class="form-group row py-1">
+                        <label for="applicationID" class="col-sm-4 col-form-label d-sm-none fw-bold">Application ID</label>
+                        <label for="applicationID" class="col-sm-4 col-form-label text-end d-none d-sm-block fw-bold">Application ID</label>
+                        <div class="col-sm-8">
+                            <input readonly type="text" class="form-control-plaintext" id="applicationID" value="A001">
+                        </div>
+                    </div>
+                    <div class="form-group row py-1">
+                        <label for="applicationStatus" class="col-sm-4 col-form-label d-sm-none fw-bold">Application Status</label>
+                        <label for="applicationStatus" class="col-sm-4 col-form-label text-end d-none d-sm-block fw-bold">Application Status</label>
+                        <div class="col-sm-8">
+                            <input readonly type="text" class="form-control-plaintext" id="applicationStatus" value="Pending">
+                        </div>
+                    </div>
+                    <div class="form-group row py-1">
+                        <label for="applicantID" class="col-sm-4 col-form-label d-sm-none fw-bold">Applicant User ID</label>
+                        <label for="applicantID" class="col-sm-4 col-form-label text-end d-none d-sm-block fw-bold">Applicant User ID</label>
+                        <div class="col-sm-8">
+                            <input readonly type="text" class="form-control-plaintext" id="applicantID" value="P001">
+                        </div>
+                    </div>
+                    <div class="form-group row py-1">
+                        <label for="petID" class="col-sm-4 col-form-label d-sm-none fw-bold">Pet ID</label>
+                        <label for="petID" class="col-sm-4 col-form-label text-end d-none d-sm-block fw-bold">Pet ID</label>
+                        <div class="col-sm-8">
+                            <input readonly type="text" class="form-control-plaintext" id="petID" value="001">
+                        </div>
+                    </div>
+                    <div class="form-group row py-1">
+                        <label for="petName" class="col-sm-4 col-form-label d-sm-none fw-bold">Pet Name</label>
+                        <label for="petName" class="col-sm-4 col-form-label text-end d-none d-sm-block fw-bold">Pet Name</label>
+                        <div class="col-sm-8">
+                            <input readonly type="text" class="form-control-plaintext" id="petName" value="Jeff">
+                        </div>
+                    </div>
+                    <div class="form-group row py-1">
+                        <label for="applicantSurname" class="col-sm-4 col-form-label d-sm-none fw-bold">Applicant Surname</label>
+                        <label for="applicantSurname" class="col-sm-4 col-form-label text-end d-none d-sm-block fw-bold">Applicant Surname</label>
+                        <div class="col-sm-8">
+                            <input readonly type="text" class="form-control-plaintext" id="applicantSurname" value="Yoon">
+                        </div>
+                    </div>
+                    <div class="form-group row py-1">
+                        <label for="applicantName" class="col-sm-4 col-form-label d-sm-none fw-bold">Applicant Given Name</label>
+                        <label for="applicantName" class="col-sm-4 col-form-label text-end d-none d-sm-block fw-bold">Applicant Given Name</label>
+                        <div class="col-sm-8">
+                            <input readonly type="text" class="form-control-plaintext" id="applicantName" value="Suk Yeol">
+                        </div>
+                    </div>
+                    <div class="form-group row py-1">
+                        <label for="applicantAddress1" class="col-sm-4 col-form-label d-sm-none fw-bold">Applicant Address Line 1</label>
+                        <label for="applicantAddress1" class="col-sm-4 col-form-label text-end d-none d-sm-block fw-bold">Applicant Address Line 1</label>
+                        <div class="col-sm-8">
+                            <input readonly type="text" class="form-control-plaintext" id="applicantAddress1" value="1 Cheongwadae-ro">
+                        </div>
+                    </div>
+                    <div class="form-group row py-1">
+                        <label for="applicantAddress2" class="col-sm-4 col-form-label d-sm-none fw-bold">Applicant Address Line 2</label>
+                        <label for="applicantAddress2" class="col-sm-4 col-form-label text-end d-none d-sm-block fw-bold">Applicant Address Line 2</label>
+                        <div class="col-sm-8">
+                            <input readonly type="text" class="form-control-plaintext" id="applicantAddress2" value="Jongno-gu, Seoul">
+                        </div>
+                    </div>
+                    <div class="form-group row py-1">
+                        <label for="applicantMessage" class="col-sm-4 col-form-label d-sm-none fw-bold">Applicant Message</label>
+                        <label for="applicantMessage" class="col-sm-4 col-form-label text-end d-none d-sm-block fw-bold">Applicant Message</label>
+                        <div class="col-sm-8">
+                            <textarea readonly class="form-control-plaintext" id="applicantMessage" rows="5">I love animals! Lorem ipsum dolor sit amet, iudicabit explicari nec et, has falli conceptam te. Vis ne omnes solet. At suavitate deterruisset mel. Suas saperet scaevola cum ad, ius propriae vulputate expetendis ad, ne his graecis laboramus. Melius luptatum pro at, ut persius discere sea, aliquam facilisi delicata ex est. Mei paulo rationibus repudiandae ei, erant malorum gloriatur vel et, an antiopam euripidis complectitur sit.</textarea>
+                        </div>
+                    </div>
+                    <div class="row p-3 justify-content-md-center"><a class="btn btn-primary col-md-6" href="chat.html">Chat with Applicant</a>
+                    </div>
+                    <div class="row pt-2 pb-1">
+                        <p>Application submitted: <span></span>2020 June 10 at 8:34 AM</span></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Copyright: PetPal</p>
+    </footer>
+
+    <!-- JS function to scroll to top -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

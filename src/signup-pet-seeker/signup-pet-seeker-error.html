@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPal - Setup - Pet Seeker - Error</title>
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/reddit-sans">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../assets/styles/login-signup.css">
+    <link rel="stylesheet" href="../assets/styles/fix-pos-icon.css">
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-secondary">
+    <header>
+        <!-- Back to Top Button -->
+        <div class="back-to-top-button">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToTop()"> &#x2191; </button>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+            <div class="container-fluid">
+                <a href="../landing.html" class="navbar-brand mb-0 h1">
+                    <img class="logo d-line-block" src="../assets/images/logo.png" alt="PetPal Logo">
+                </a>
+
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="../landing.html" class="nav-link">Home</a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-dark btn-sm ms-0" href="../login.html" role="button">Login</a>
+                    <a class="btn btn-dark btn-sm ms-3" href="../signup.html" role="button">Signup</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="login-signup-main">
+        <div class="login-signup-box">
+            <div>
+                <h3 class="fw-bold">Create a Pet Seeker Account</h3>
+                <p class="fs-6"><span class="fw-bold">Are you a Pet Shelter?</span> Sign up <a href="../signup-pet-shelter/signup-pet-shelter.html">here</a>.</p>
+            </div>
+
+            <form class="login-signup-form" class="needs-validation was-validated" novalidate action="signup-pet-seeker-2.html">
+                <div class="row">
+                    <div class="col">
+                        <label for="first-name">First Name</label>
+                        <input type="text" class="form-control is-invalid" id="first-name" placeholder="Enter first name here" required>
+                        <div class="invalid-feedback">
+                            Please enter your first name.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" class="form-control is-invalid" id="last-name" placeholder="Enter last name here" required>
+                        <div class="invalid-feedback">
+                            Please enter your last name.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control is-invalid" id="email" placeholder="Enter email here" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control is-invalid" id="password" placeholder="Enter password here"  value="123" required>
+                        <div class="invalid-feedback">
+                            Please ensure that your passwords match.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" class="form-control is-invalid" id="confirm-password" placeholder="Confirm password here" value="321" required>
+                        <div class="invalid-feedback">
+                            Please ensure that your passwords match.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-2">
+                    <input class="btn btn-primary align-self-start" type="submit" value="Signup">
+                    <div class="mt-1">
+                        <p class="fs-6"><span class="fw-bold">Already have an account?</span> Log in <a href="../login.html">here</a>.</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Copyright: PetPal</p>
+    </footer>
+
+    <!-- JS function to scroll to top -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

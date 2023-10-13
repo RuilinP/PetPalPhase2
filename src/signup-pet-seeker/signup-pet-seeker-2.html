@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPal - Signup - Pet Seeker - Continued</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/reddit-sans">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../assets/styles/login-signup.css">
+    <link rel="stylesheet" href="../assets/styles/fix-pos-icon.css">
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-secondary">
+    <header>
+        <!-- Back to Top Button -->
+        <div class="back-to-top-button">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToTop()"> &#x2191; </button>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+            <div class="container-fluid">
+                <a href="../landing.html" class="navbar-brand mb-0 h1">
+                    <img class="logo d-line-block" src="../assets/images/logo.png" alt="PetPal Logo">
+                </a>
+
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="../landing.html" class="nav-link">Home</a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-dark btn-sm ms-0" href="../login.html" role="button">Login</a>
+                    <a class="btn btn-dark btn-sm ms-3" href="../signup.html" role="button">Signup</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="login-signup-main">
+        <div class="login-signup-box">
+            <div>
+                <h3 class="fw-bold">Almost Done, Spongebob!</h3>
+                <p class="fs-6"><span class="fw-bold">This is optional.</span> Help us find the perfect pet for you by filling in a bit more information.</p>
+            </div>
+
+            <form class="login-signup-form" class="needs-validation" novalidate action="signup-pet-seeker-done.html">
+                <div class="row">
+                    <div class="col">
+                        <label for="phone-number">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone-number" placeholder="Enter phone number here">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter address here">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="country">Country</label>
+                        <input type="text" class="form-control" id="country" placeholder="Enter country here">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="state-province">State/Province</label>
+                        <input type="text" class="form-control" id="state-province" placeholder="Enter state/province here">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" placeholder="Enter city here">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="postal-code">Zip/Postal Code</label>
+                        <input type="text" class="form-control" id="postal-code" placeholder="Enter zip/postal code here">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="preferences">Preferences</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="yes" id="preference-dog">
+                            <label class="form-check-label" for="preference-dog">
+                                Dog
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="yes" id="preference-cat">
+                            <label class="form-check-label" for="preference-cat">
+                                Cat
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="yes" id="preference-hamster">
+                            <label class="form-check-label" for="preference-hamster">
+                                Hamster
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="yes" id="preference-bird">
+                            <label class="form-check-label" for="preference-bird">
+                                Bird
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="yes" id="preference-rabbit">
+                            <label class="form-check-label" for="preference-rabbit">
+                                Rabbit
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="multiple-buttons">
+                        <input class="btn btn-primary align-self-start" type="submit" value="Continue">
+                        <input class="btn btn-outline-primary align-self-start" type="submit" value="Skip">
+                    </div>
+                    <div class="mt-1">
+                        <p class="fs-6">You can always update this information from your profile.</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Copyright: PetPal</p>
+    </footer>
+
+    <!-- JS function to scroll to top -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

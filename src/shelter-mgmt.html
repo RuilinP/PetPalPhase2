@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PetPal - Manage Your Shelter</title>
+
+    <!-- CSS -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/reddit-sans">
+    <link rel="stylesheet" href="main.css">
+
+    <!-- Bootstrap Select CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/styles/custom.css">
+    <link rel="stylesheet" href="assets/styles/fix-pos-icon.css">
+    <link rel="stylesheet" href="assets/styles/daterangepicker-bs3.css">
+</head>
+<body>
+    <!--navbar-->
+    <header>  
+        <!-- notification button for small screen -->
+        <div class="d-md-none fixed-bottom pr-3 pb-3">
+            <a class="notif-icon btn btn-sm navbar-brand" href="notifications.html">
+                &#x1F514;
+          </a>
+        </div>
+
+        <!-- Back to Top Button -->
+        <div class="back-to-top-button">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToTop()"> &#x2191; </button>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+            <!-- Navbar content -->
+            <div class="container-fluid">
+                <a href="landing.html" class="navbar-brand mb-0 h1">
+                    <img class="logo d-line-block" src="assets/images/logo.png" alt="PetPal Logo">
+                </a>
+
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="landing.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="shelter-mgmt.html" class="nav-link">Manage Shelter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="profile-pet-shelter/profile-pet-shelter.html" class="nav-link">Profile</a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-dark btn-sm ms-0" href="landing.html" role="button">Log out</a>
+                    <!-- notification button for large screen -->
+                    <a href="notifications.html" class="btn btn-sm ms-2 me-0 navbar-brand d-none d-md-block">&#x1F514;</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sub Navigation Bar -->
+        <nav id="subNavbar" class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#animal-inventory">Animal Inventory</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#adoptions">Adoptions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#STreviews">Shelter Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#STchats">Chat Records</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Dashboard Section -->
+            <section id="profile" class="my-5">
+                <div class="section-heading mb-4">
+                    <h2>Dashboard  
+                        <a href="profile-pet-shelter/profile-pet-shelter-edit.html" class="btn btn-primary btn-sm">Edit Profile</a>
+                    </h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-4 d-flex justify-content-center justify-content-md-end">
+                        <div class="profile-pic-container">
+                            <img src="assets/images/profile.jpg" alt="Shelter Profile">
+                        </div>
+                    </div>
+                    <div class="col-md-8 d-flex align-items-center">
+                        <div class="statement-container px-3 px-md-0">
+                            <ul>
+                                <li>You have joined PetPal since ____ .</li>
+                                <li>During your time with PetPal, ____ animals found their home.</li>
+                            </ul>
+    
+                            <ul>
+                                <li>Total Animals: 150</li>
+                                <li>Animals Adopted This Month:   20</li>
+                                <li>Adoption Records: 120</li>
+                                <li>Pending Adoptions: 5</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Animal Inventory Section -->
+            <section id="animal-inventory" class="my-5">
+                <div class="section-heading mb-4">
+                    <h2>Animal Inventory
+                        <a href="pet-creation.html" class="btn btn-primary btn-sm">Add A Pet</a>
+                    </h2>
+                </div>
+                <!-- Search Bar -->
+                <div class="col-md-12 input-group mb-3 p-3">
+                    <input type="text" class="form-control" placeholder="Search" id="animal-inv-search-input">
+                    <button class="btn btn-primary" id="search-btn">Search</button>
+                </div>
+    
+                <!-- Filters -->
+                <div class="mgmtfilters container mb-3">
+                    <div class="row">
+                        <!-- Adoption Status -->
+                        <div class="col-md-12 mb-3">
+                            <label for="select-status" class="form-label">Adoption Status:</label>
+                            <select id="select-status" name="status[]" class="selectpicker w-100" multiple data-live-search="true" title="All">
+                                <option value="available">Available</option>
+                                <option value="adopted">Adopted</option>
+                                <option value="pending">Pending</option>
+                                <option value="withdrawn">Withdrawn</option>
+                            </select>
+                        </div>
+                        <!-- Upload Date -->
+                        <div class="col-md-12 mb-3">
+                            <label for="datepicker" class="form-label">Upload Date:</label>
+                            <form class="form-horizontal">
+                                <fieldset>
+                                <div class="control-group">
+                                <div class="controls">
+                                    <div class="input-prepend input-group">
+                                    <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text" style="width: 200px" name="datepicker" id="datepicker" class="form-control" value="01/01/2023 - 10/13/2023">
+                                    </div>
+                                </div>
+                                </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                <!-- Breeds -->
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Breeds:</label>
+                    <!-- Breed Tabs -->
+                    <ul class="nav nav-tabs" id="breed-tabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="cats-tab" data-bs-toggle="tab" href="#cats" role="tab" aria-controls="cats" aria-selected="true">Cats</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="dogs-tab" data-bs-toggle="tab" href="#dogs" role="tab" aria-controls="dogs" aria-selected="false">Dogs</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="other-tab" data-bs-toggle="tab" href="#other" role="tab" aria-controls="other" aria-selected="false">Other</a>
+                        </li>
+                    </ul>
+                    <!-- Breed Tab Content -->
+                    <div class="tab-content" id="breed-tab-content">
+                        <div class="tab-pane fade show active" id="cats" role="tabpanel" aria-labelledby="cats-tab">
+                            <select id="select-cats" name="cats[]" class="selectpicker w-100" multiple data-live-search="true" title="All">
+                                <option value="domestic-shorthair">Domestic Shorthair</option>
+                                <option value="domestic-longhair">Domestic Longhair</option>
+                                <option value="maine-coon">Maine Coon</option>
+                                <option value="ragdoll">Ragdoll</option>
+                                <option value="american-shorthair">American Shorthair</option>
+                                <option value="siamese">Siamese</option>
+                                <option value="russian-blue">Russian Blue</option>
+                                <option value="bengal">Bengal</option>
+                                <option value="persian">Persian</option>
+                                <option value="bombay">Bombay</option>
+                            </select>
+                        </div>
+                        <div class="tab-pane fade" id="dogs" role="tabpanel" aria-labelledby="dogs-tab">
+                            <select id="select-dogs" name="dogs[]" class="selectpicker w-100" multiple data-live-search="true" title="All">
+                                <option value="pit-bull-terrier-mixes">Pit Bull Terrier Mixes</option>
+                                <option value="labrador-retriever">Labrador Retriever</option>
+                                <option value="chihuahua">Chihuahua</option>
+                                <option value="german-shepherd">German Shepherd</option>
+                                <option value="boxer">Boxer</option>
+                                <option value="beagle">Beagle</option>
+                                <option value="dachshund">Dachshund</option>
+                                <option value="rottweiler">Rottweiler</option>
+                                <option value="border-collie">Border Collie</option>
+                                <option value="husky">Husky</option>
+                            </select>
+                        </div>
+                        <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
+                            <select id="select-other" name="other[]" class="selectpicker w-100" multiple data-live-search="true" title="All">
+                                <option value="rabbits">Rabbits</option>
+                                <option value="reptiles">Reptiles</option>
+                                <option value="birds">Birds</option>
+                                <option value="guinea-pigs">Guinea Pigs</option>
+                                <option value="hamsters">Hamsters</option>
+                                <option value="ferrets">Ferrets</option>
+                                <option value="chinchillas">Chinchillas</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+                <!-- Order Bar -->
+                <div class="row mb-3 p-3">
+                    <!-- Order by Name -->
+                    <div class="col-12 col-md-6 col-lg-3 mb-2 mb-md-0">
+                        <label for="order-name" class="form-label">Name:</label>
+                        <select id="order-name" name="order_name" class="selectpicker d-block" title="Order by Name...">
+                            <option value="name-asc">A - Z</option>
+                            <option value="name-desc">Z - A</option>
+                        </select>
+                    </div>
+                    <!-- Order by Age -->
+                    <div class="col-12 col-md-6 col-lg-3 mb-2 mb-md-0">
+                        <label for="order-age" class="form-label">Age:</label>
+                        <select id="order-age" name="order_age" class="selectpicker d-block" title="Order by Age...">
+                            <option value="age-asc">Young to Old</option>
+                            <option value="age-desc">Old to Young</option>
+                        </select>
+                    </div>
+                    <!-- Order by Size -->
+                    <div class="col-12 col-md-6 col-lg-3 mb-2 mb-md-0">
+                        <label for="order-size" class="form-label">Size:</label>
+                        <select id="order-size" name="order_size" class="selectpicker d-block" title="Order by Size...">
+                            <option value="size-asc">Small to Large</option>
+                            <option value="size-desc">Large to Small</option>
+                        </select>
+                    </div>
+                    <!-- Order by Upload Date -->
+                    <div class="col-12 col-md-6 col-lg-3 mb-2 mb-md-0">
+                        <label for="animal-inv-order-upload-date" class="form-label">Upload Date:</label>
+                        <select id="animal-inv-order-upload-date" name="order_upload_date" class="selectpicker d-block" title="Order by Upload Date...">
+                            <option value="upload-date-asc">Newest</option>
+                            <option value="upload-date-desc">Oldest</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <!-- Paginated List of Animals -->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">PetID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col" class="d-none d-md-table-cell">Breed</th>
+                            <th scope="col" class="d-none d-md-table-cell">Gender</th>
+                            <th scope="col" class="d-none d-md-table-cell">Age</th>
+                            <th scope="col" class="d-none d-md-table-cell">Adoption Status</th>
+                            <th scope="col">Manage</th>
+                        </tr>
+                    </thead>
+                    <!-- Page 1 -->
+                    <tbody class="animal-page" data-page="1">
+                        <tr>
+                            <td>001</td>
+                            <td>Max</td>
+                            <td class="d-none d-md-table-cell">Labrador Retriever</td>
+                            <td class="d-none d-md-table-cell">Male</td>
+                            <td class="d-none d-md-table-cell">2 years</td>
+                            <td class="d-none d-md-table-cell">Available</td>
+                            <td class="d-grid gap-2">
+                                <button type="button" class="btn btn-info" onclick="viewDetails('pet-update.html');">Update</button>
+                                <button type="button" class="btn btn-danger" onclick="deletepet(1);">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Bella</td>
+                            <td class="d-none d-md-table-cell">German Shepherd</td>
+                            <td class="d-none d-md-table-cell">Female</td>
+                            <td class="d-none d-md-table-cell">3 years</td>
+                            <td class="d-none d-md-table-cell">Available</td>
+                            <td class="d-grid gap-2">
+                                <button type="button" class="btn btn-info" onclick="viewDetails('pet-update.html');">Update</button>
+                                <button type="button" class="btn btn-danger" onclick="deletepet(1);">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>003</td>
+                            <td>Max</td>
+                            <td class="d-none d-md-table-cell">Labrador Retriever</td>
+                            <td class="d-none d-md-table-cell">Male</td>
+                            <td class="d-none d-md-table-cell">2 years</td>
+                            <td class="d-none d-md-table-cell">Available</td>
+                            <td class="d-grid gap-2">
+                                <button type="button" class="btn btn-info" onclick="viewDetails('pet-update.html');">Update</button>
+                                <button type="button" class="btn btn-danger" onclick="deletepet(1);">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>004</td>
+                            <td>Bella</td>
+                            <td class="d-none d-md-table-cell">German Shepherd</td>
+                            <td class="d-none d-md-table-cell">Female</td>
+                            <td class="d-none d-md-table-cell">3 years</td>
+                            <td class="d-none d-md-table-cell">Available</td>
+                            <td class="d-grid gap-2">
+                                <button type="button" class="btn btn-info" onclick="viewDetails('pet-update.html');">Update</button>
+                                <button type="button" class="btn btn-danger" onclick="deletepet(1);">Delete</button>
+                            </td>
+                        </tr><tr>
+                            <td>005</td>
+                            <td>Max</td>
+                            <td class="d-none d-md-table-cell">Labrador Retriever</td>
+                            <td class="d-none d-md-table-cell">Male</td>
+                            <td class="d-none d-md-table-cell">2 years</td>
+                            <td class="d-none d-md-table-cell">Available</td>
+                            <td class="d-grid gap-2">
+                                <button type="button" class="btn btn-info" onclick="viewDetails('pet-update.html');">Update</button>
+                                <button type="button" class="btn btn-danger" onclick="deletepet(1);">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>006</td>
+                            <td>Bella</td>
+                            <td class="d-none d-md-table-cell">German Shepherd</td>
+                            <td class="d-none d-md-table-cell">Female</td>
+                            <td class="d-none d-md-table-cell">3 years</td>
+                            <td class="d-none d-md-table-cell">Available</td>
+                            <td class="d-grid gap-2">
+                                <button type="button" class="btn btn-info" onclick="viewDetails('pet-update.html');">Update</button>
+                                <button type="button" class="btn btn-danger" onclick="deletepet(1);">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <!-- Page 2 -->
+                    <tbody class="animal-page" data-page="2" style="display: none;">
+                        <tr>
+                            <td>007</td>
+                            <td>Charlie</td>
+                            <td class="d-none d-md-table-cell">Husky</td>
+                            <td class="d-none d-md-table-cell">Male</td>
+                            <td class="d-none d-md-table-cell">1 year</td>
+                            <td class="d-none d-md-table-cell">Available</td>
+                            <td class="d-grid gap-2">
+                                <button type="button" class="btn btn-info" onclick="viewDetails('pet-update.html');">Update</button>
+                                <button type="button" class="btn btn-danger" onclick="deletepet(1);">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>008</td>
+                            <td>Lola</td>
+                            <td class="d-none d-md-table-cell">border-collie</td>
+                            <td class="d-none d-md-table-cell">Female</td>
+                            <td class="d-none d-md-table-cell">4 years</td>
+                            <td class="d-none d-md-table-cell">Adopted</td>
+                            <td class="d-grid gap-2">
+                                <button type="button" class="btn btn-info" onclick="viewDetails('pet-update.html');">Update</button>
+                                <button type="button" class="btn btn-danger" onclick="deletepet(1);">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>009</td>
+                            <td>Charlie</td>
+                            <td class="d-none d-md-table-cell">Husky</td>
+                            <td class="d-none d-md-table-cell">Male</td>
+                            <td class="d-none d-md-table-cell">1 year</td>
+                            <td class="d-none d-md-table-cell">Available</td>
+                            <td class="d-grid gap-2">
+                                <button type="button" class="btn btn-info" onclick="viewDetails('pet-update.html');">Update</button>
+                                <button type="button" class="btn btn-danger" onclick="deletepet(1);">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>010</td>
+                            <td>Lola</td>
+                            <td class="d-none d-md-table-cell">border-collie</td>
+                            <td class="d-none d-md-table-cell">Female</td>
+                            <td class="d-none d-md-table-cell">4 years</td>
+                            <td class="d-none d-md-table-cell">Adopted</td>
+                            <td class="d-grid gap-2">
+                                <button type="button" class="btn btn-info" onclick="viewDetails('pet-update.html');">Update</button>
+                                <button type="button" class="btn btn-danger" onclick="deletepet(1);">Delete</button>
+                            </td>
+                        </tr><tr>
+                            <td>011</td>
+                            <td>Charlie</td>
+                            <td class="d-none d-md-table-cell">Husky</td>
+                            <td class="d-none d-md-table-cell">Male</td>
+                            <td class="d-none d-md-table-cell">1 year</td>
+                            <td class="d-none d-md-table-cell">Available</td>
+                            <td class="d-grid gap-2">
+                                <button type="button" class="btn btn-info" onclick="viewDetails('pet-update.html');">Update</button>
+                                <button type="button" class="btn btn-danger" onclick="deletepet(1);">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>012</td>
+                            <td>Lola</td>
+                            <td class="d-none d-md-table-cell">border-collie</td>
+                            <td class="d-none d-md-table-cell">Female</td>
+                            <td class="d-none d-md-table-cell">4 years</td>
+                            <td class="d-none d-md-table-cell">Adopted</td>
+                            <td class="d-grid gap-2">
+                                <button type="button" class="btn btn-info" onclick="viewDetails('pet-update.html');">Update</button>
+                                <button type="button" class="btn btn-danger" onclick="deletepet(1);">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <!-- Page 3 -->
+                    <tbody class="animal-page" data-page="3" style="display: none;">
+                        <tr>
+                            <td>013</td>
+                            <td>Lily</td>
+                            <td class="d-none d-md-table-cell">Beagle</td>
+                            <td class="d-none d-md-table-cell">Female</td>
+                            <td class="d-none d-md-table-cell">3 years</td>
+                            <td class="d-none d-md-table-cell">Adopted</td>
+                            <td class="d-grid gap-2">
+                                <button type="button" class="btn btn-info" onclick="viewDetails('pet-update.html');">Update</button>
+                                <button type="button" class="btn btn-danger" onclick="deletepet(1);">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+    
+                <!-- Pagination Controls -->
+                <nav aria-label="Animal list pagination">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled" id="previous-page">
+                            <a class="page-link" href="javascript:void(0);" aria-label="Previous" onclick="changePage('prev');">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="javascript:void(0);" onclick="changePage(1);">1</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="changePage(2);">2</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="changePage(3);">3</a></li>
+                        <li class="page-item" id="next-page">
+                            <a class="page-link" href="javascript:void(0);" aria-label="Next" onclick="changePage('next');">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+            
+            <!-- Adoptions Section -->
+            <section id="adoptions" class="my-5">
+                <div class="section-heading mb-4">
+                    <h2>Adoptions</h2>
+                </div>
+                <!-- Search Bar -->
+                <div class="col-md-12 input-group mb-3 p-3">
+                    <input type="text" class="form-control" placeholder="Search" id="adopt-app-search-input">
+                    <button class="btn btn-primary" type="button" id="adopt-app-search-btn">Search</button>
+                </div>
+    
+                <!-- Filters -->
+                <div class="mgmtfilters container mb-3">
+                    <div class="row">
+                        <!-- Application Status -->
+                        <div class="col-md-12 mb-3">
+                            <label for="animal-inv-select-appstatus" class="form-label">Application Status:</label>
+                            <select id="animal-inv-select-appstatus" name="appstatus[]" class="selectpicker w-100" multiple data-live-search="true" title="All">
+                                <option value="completed">Approved</option>
+                                <option value="aborted">Rejected</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
+                        <!-- Application Date -->
+                        <div class="col-md-12 mb-3">
+                            <label for="adopt-datepicker" class="form-label">Application Date:</label>
+                            <form class="form-horizontal">
+                                <fieldset>
+                                <div class="control-group">
+                                <div class="controls">
+                                    <div class="input-prepend input-group">
+                                    <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text" style="width: 200px" name="adopt-datepicker" id="adopt-datepicker" class="form-control" value="01/01/2023 - 10/13/2023">
+                                    </div>
+                                </div>
+                                </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Order Bar -->
+                    <div class="row mb-3 p-3">
+                        <!-- Order by Name -->
+                        <div class="col-12 col-md-6 col-lg-6 mb-2 mb-md-0">
+                            <label for="order-applicant-name" class="form-label">Applicant Name:</label>
+                            <select id="order-applicant-name" name="order_name" class="selectpicker d-block" title="Order by Applicant Name...">
+                                <option value="name-asc">A - Z</option>
+                                <option value="name-desc">Z - A</option>
+                            </select>
+                        </div>
+                        <!-- Order by Upload Date -->
+                        <div class="col-12 col-md-6 col-lg-6 mb-2 mb-md-0">
+                            <label for="adopt-app-order-upload-date" class="form-label">Upload Date:</label>
+                            <select id="adopt-app-order-upload-date" name="order_upload_date" class="selectpicker d-block" title="Order by Upload Date...">
+                                <option value="upload-date-asc">Newest</option>
+                                <option value="upload-date-desc">Oldest</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <!-- Paginated List of Adoption Records -->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ApplicationID</th>
+                            <th scope="col" class="d-none d-md-table-cell">ApplicantID</th>
+                            <th scope="col">PetID</th>
+                            <th scope="col" class="d-none d-md-table-cell">Application Status</th>
+                            <th scope="col" class="d-none d-md-table-cell">Applicant Name</th>
+                            <th scope="col">Manage</th>
+                        </tr>
+                    </thead>
+                    <!-- Page 1 -->
+                    <tbody class="adoptMgmt-page" data-page="1">
+                        <tr>
+                            <td>A001</td>
+                            <td class="d-none d-md-table-cell">P001</td>
+                            <td>001</td>
+                            <td class="d-none d-md-table-cell">Pending</td>
+                            <td class="d-none d-md-table-cell">Rick</td>
+                            <td class="d-grid gap-2">
+                                <button type="button" class="btn btn-info" onclick="viewDetails('application-shelter-side.html');">Details</button>
+                                <button type="button" class="btn btn-danger" onclick="rejectapp(1);">Reject</button>
+                                <button type="button" class="btn btn-success" onclick="approveapp(1);">Approve</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>A002</td>
+                            <td class="d-none d-md-table-cell">P002</td>
+                            <td>013</td>
+                            <td class="d-none d-md-table-cell">Approved</td>
+                            <td class="d-none d-md-table-cell">Rick</td>
+                            <td class="d-grid gap-2">
+                                <button type="button" class="btn btn-info" onclick="viewDetails('application-shelter-side.html');">Details</button>
+                                <button type="button" class="btn btn-danger" onclick="rejectapp(1);" disabled>Reject</button>
+                                <button type="button" class="btn btn-success" onclick="approveapp(1);" disabled>Approve</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+    
+            <!-- Shelter Reviews Section -->
+            <section id="STreviews" class="my-5">
+                <div class="section-heading mb-4">
+                    <h2>Shelter Reviews</h2>
+                </div>
+                <!-- Search Bar -->
+                <div class="col-md-12 input-group mb-3 p-3">
+                    <input type="text" class="form-control" placeholder="Search" id="review-search-input">
+                    <button class="btn btn-primary" type="button" id="review-search-btn">Search</button>
+                </div>
+    
+                <!-- Filters -->
+                <div class="mgmtfilters container mb-3">
+                    <div class="row">
+                        <!-- Application Status -->
+                        <div class="col-md-12 mb-3">
+                            <label for="adopt-app-select-appstatus" class="form-label">Application Status:</label>
+                            <select id="adopt-app-select-appstatus" name="appstatus[]" class="selectpicker w-100" multiple data-live-search="true" title="All">
+                                <option value="completed">Completed</option>
+                                <option value="aborted">Aborted</option>
+                                <option value="pending">Pending</option>
+                                <option value="completed">have not applied</option>
+                            </select>
+                        </div>
+                        <!-- Ratings -->
+                        <div class="col-md-12 mb-3">
+                            <label for="select-rating" class="form-label">Ratings:</label>
+                            <select id="select-rating" name="rating[]" class="selectpicker w-100" multiple data-live-search="true" title="All">
+                                <option value="1star">1 Star</option>
+                                <option value="2star">2 Star</option>
+                                <option value="3star">3 Star</option>
+                                <option value="4star">4 Star</option>
+                                <option value="5star">5 Star</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Order Bar -->
+                    <div class="row mb-3 p-3">
+                        <!-- Order by Ratings -->
+                        <div class="col-12 col-md-6 col-lg-6 mb-2 mb-md-0">
+                            <label for="order-rating" class="form-label">Ratings:</label>
+                            <select id="order-rating" name="order_rating" class="selectpicker d-block" title="Order by Ratings...">
+                                <option value="ratings-asc">Low to High</option>
+                                <option value="ratings-desc">High to Low</option>
+                            </select>
+                        </div>
+                        <!-- Order by Review Date -->
+                        <div class="col-12 col-md-6 col-lg-6 mb-2 mb-md-0">
+                            <label for="order-review-date" class="form-label">Review Date:</label>
+                            <select id="order-review-date" name="order_review_date" class="selectpicker d-block w-100" title="Order by Review Date...">
+                                <option value="review-date-asc">Newest</option>
+                                <option value="review-date-desc">Oldest</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Paginated List of Review Records, 1 review thread per application -->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ReviewID</th>
+                            <th scope="col" class="d-none d-md-table-cell">ReviewThreadID</th>
+                            <th scope="col">Reviewer Name</th>
+                            <th scope="col" class="d-none d-md-table-cell">Time Sent</th>
+                            <th scope="col" class="d-none d-md-table-cell">Rating</th>
+                            <th scope="col" class="d-none d-md-table-cell">Message</th>
+                            <th scope="col" class="d-none d-md-table-cell">Is Shelter Reply</th>
+                            <th scope="col">Details</th>
+                        </tr>
+                    </thead>
+                    <!-- Page 1 -->
+                    <tbody class="reviewMgmt-page" data-page="1">
+                        <tr>
+                            <td>R001</td>
+                            <td class="d-none d-md-table-cell">A001</td>
+                            <td>Rick</td>
+                            <td class="d-none d-md-table-cell">07/01/2023 11:00 am</td>
+                            <td class="d-none d-md-table-cell">5</td>
+                            <td class="d-none d-md-table-cell">I adopted Morty from Shelter Name last year. The care and dedication of the staff are beyond words. Morty is now a joyful member of our family!</td>
+                            <td class="d-none d-md-table-cell">No</td>
+                            <td><button type="button" class="btn btn-info" onclick="viewDetails('reviews.html#thread1');">Reply</button></td>
+                        </tr>
+                        <tr>
+                            <td>R002</td>
+                            <td class="d-none d-md-table-cell">A001</td>
+                            <td>Rick</td>
+                            <td class="d-none d-md-table-cell">07/02/2023 11:00 am</td>
+                            <td class="d-none d-md-table-cell">3</td>
+                            <td class="d-none d-md-table-cell">Morty is in Citadel now.</td>
+                            <td class="d-none d-md-table-cell">No</td>
+                            <td><button type="button" class="btn btn-info" onclick="viewDetails('reviews.html#thread2');">Reply</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+    
+            <!-- Shelter Chats Section -->
+            <section id="STchats" class="my-5">
+                <div class="section-heading mb-4">
+                    <h2>Chat Records</h2>
+                </div>
+                <!-- Search Bar -->
+                <div class="col-md-12 input-group mb-3 p-3">
+                    <input type="text" class="form-control" placeholder="Search" id="chat-search-input">
+                    <button class="btn btn-primary" type="button" id="chat-search-btn">Search</button>
+                </div>
+    
+                <!-- Filters & Order Bar -->
+                <div class="mgmtfilters container mb-3">
+                    <div class="row mb-3 p-3">
+                        
+                        <!-- Unread or not -->
+                        <div class="col-12 col-md-4 col-lg-4 mb-2 mb-md-0">
+                            <label for="select-unread" class="form-label">Read/Unread:</label>
+                            <select id="select-unread" name="unread[]" class="selectpicker w-75" multiple data-live-search="true" title="All">
+                                <option value="Read">Read</option>
+                                <option value="Unread">Unread</option>
+                            </select>
+                        </div>
+    
+                        <!-- Order by Received Time -->
+                        <div class="col-12 col-md-8 col-lg-8 mb-2 mb-md-0">
+                            <label for="order-chat-time" class="form-label">Received Time:</label>
+                            <select id="order-chat-time" name="order_chat_time" class="selectpicker d-block w-75" title="Order by Received Time...">
+                                <option value="received-time-asc">Newest</option>
+                                <option value="received-time-desc">Oldest</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Paginated List of Review Records, 1 review thread per application -->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">UserID</th>
+                            <th scope="col">User Name</th>
+                            <th scope="col" class="d-none d-md-table-cell">Time Sent</th>
+                            <th scope="col" class="d-none d-md-table-cell">Content</th>
+                            <th scope="col" class="d-none d-md-table-cell">Is Unread</th>
+                            <th scope="col" class="d-none d-md-table-cell">Is Shelter Reply</th>
+                            <th scope="col">Details</th>
+                        </tr>
+                    </thead>
+                    <!-- Page 1 -->
+                    <tbody class="reviewMgmt-page" data-page="1">
+                        <tr>
+                            <td>U001</td>
+                            <td>Rick</td>
+                            <td class="d-none d-md-table-cell">07/01/2023 11:51am</td>
+                            <td class="d-none d-md-table-cell">I adopted Morty from Shelter Name last year. The care and dedication of the staff are beyond words. Morty is now a joyful member of our family!</td>
+                            <td class="d-none d-md-table-cell">Yes</td>
+                            <td class="d-none d-md-table-cell">No</td>
+                            <td><button type="button" class="btn btn-info" onclick="viewDetails('chat.html');">Reply</button></td>
+                        </tr>
+                        <tr>
+                            <td>U001</td>
+                            <td>Rick</td>
+                            <td class="d-none d-md-table-cell">07/01/2023 11:51am</td>
+                            <td class="d-none d-md-table-cell">I adopted Morty from Shelter Name last year. The care and dedication of the staff are beyond words. Morty is now a joyful member of our family!</td>
+                            <td class="d-none d-md-table-cell">Yes</td>
+                            <td class="d-none d-md-table-cell">No</td>
+                            <td><button type="button" class="btn btn-info" onclick="viewDetails('chat.html');">Reply</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Copyright: PetPal</p>
+    </footer>
+
+    <!-- JS -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/moment.js"></script>
+    <script src="assets/js/daterangepicker.js"></script>
+    <script src="assets/js/shelter-mgmt-custom.js"></script>
+    
+    <!-- Bootstrap Select JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
+
+    <!-- JS function to scroll to top -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+    <!-- JS function to redirect -->
+    <script>
+        function viewDetails(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPal - Chat</title>
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/reddit-sans">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="assets/styles/chat.css">
+    <link rel="stylesheet" href="assets/styles/fix-pos-icon.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="chat-body">
+    <header>
+        <!-- notification button for small screen -->    
+        <div class="d-md-none fixed-bottom pr-3 pb-3">
+            <a class="notif-icon btn btn-sm navbar-brand" href="notifications.html">
+                &#x1F514;
+            </a>
+        </div>
+
+        <!-- Back to Top Button -->
+        <div class="back-to-top-button">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToTop()"> &#x2191; </button>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+            <div class="container-fluid">
+                <a href="landing.html" class="navbar-brand mb-0 h1">
+                    <img class="logo d-line-block" src="assets/images/logo.png" alt="PetPal Logo">
+                </a>
+
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="landing.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pet-search.html" class="nav-link">Pet Search</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="application-list.html" class="nav-link">My Applications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="profile-pet-seeker/profile-pet-seeker.html" class="nav-link">Profile</a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-dark btn-sm ms-0" href="landing.html" role="button">Log out</a>
+                    <a href="notifications.html" class="btn btn-sm ms-2 me-0 navbar-brand d-none d-md-block">&#x1F514;</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="chat-main">
+        <div class="container pt-5 pb-5 chat-width">
+            <div class="card">
+                <div class="card-header d-flex p-3">
+                    <h5 class="mb-0">Chat</h5>
+                </div>
+                <div class="card-body chat-scroll" data-mdb-perfect-scrollbar="true">
+                    <div class="d-flex flex-row justify-content-start mh-100">
+                        <div class="w-75">
+                            <p class="p-2 px-3 ms-3 mb-1 rounded-2" style="background-color: #f5f6f7;">Hello, is Jeff still  available for adoption?</p>
+                            <p class="p-2 px-3 ms-3 mb-1 rounded-2" style="background-color: #f5f6f7;">I wanted to ask a few questions if possible</p>
+                            <p class="ms-3 mb-3 rounded-3 text-muted">23/10/11 23:58</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-end">
+                        <div class="w-75">
+                            <p class="p-2 px-3 me-3 mb-1 rounded-2 bg-primary text-white">Yes! He is still available</p>
+                            <p class="p-2 px-3 me-3 mb-1 rounded-2 bg-primary text-white">I am the owner, Ritz. I have owned
+                                Jeff for four years, but now that our family has to move, we wanted to find him a better
+                                home.</p>
+                            <p class="p-2 px-3 me-3 mb-1 rounded-2 bg-primary text-white">Please, feel free to ask away</p>
+                            <p class="me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">23/10/12 00:06</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-start">
+                        <div class="w-75">
+                            <p class="p-2 px-3 ms-3 mb-1 rounded-2" style="background-color: #f5f6f7;">Lorem ipsum dolor sit
+                                amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                magna aliqua.</p>
+                            <p class="p-2 px-3 ms-3 mb-1 rounded-2" style="background-color: #f5f6f7;">Ut enim ad minim
+                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                            <p class="p-2 px-3 ms-3 mb-1 rounded-2" style="background-color: #f5f6f7;">Duis aute irure dolor
+                                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p class="p-2 px-3 ms-3 mb-1 rounded-2" style="background-color: #f5f6f7;">Excepteur sint
+                                occaecat cupidatat non proident,</p>
+                            <p class="p-2 px-3 ms-3 mb-1 rounded-2" style="background-color: #f5f6f7;">sunt in culpa qui
+                                officia deserunt mollit anim id est laborum.</p>
+                            <p class="ms-3 mb-3 rounded-3 text-muted">23/10/12 01:12</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-end">
+                        <div class="w-75">
+                            <p class="p-2 px-3 me-3 mb-1 rounded-2 bg-primary text-white">Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                aliqua.</p>
+                            <p class="p-2 px-3 me-3 mb-1 rounded-2 bg-primary text-white">Ut enim ad minim veniam, quis
+                                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p class="p-2 px-3 me-3 mb-1 rounded-2 bg-primary text-white">Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                                laborum.</p>
+                            <p class="me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">23/10/12 01:19</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-muted justify-content-start align-items-center py-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Type message" aria-label="Type message" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary rounded-start-0" type="button">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Copyright: PetPal</p>
+    </footer>
+
+    <!-- JS function to scroll to top -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
